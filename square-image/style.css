@@ -1,18 +1,64 @@
 .img-box {
     height: 250px;
-    width: 250px;
+    width: 650px;
     border: 1px solid #000;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-   
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .add-overlay {
+    position: relative;
+  }
+  .add-overlay:hover::after {
+    background-color: rgba(255, 99, 71, 0);
+  }
+  .add-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 99, 71, 0.28);
     transition: all 0.2s;
-    
-}
-.img-box h2{
+  }
+  
+  .img-box h2 {
     color: #fff;
-}
-.img-box:hover 
-
-}
+    z-index: 1;
+  }
+  .img-box img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 99, 71, 0.22);
+    transition: all 0.2s;
+  }
+  
+  .img-box:hover .overlay {
+    background-color: rgba(255, 99, 71, 0);
+  }
+  
+  /* Pseudo selectors */
+  .img-box:hover .title::after {
+    content: '--I am after ---->>';
+    color: #333;
+    font-size: 12px;
+  }
+  .title:hover::before {
+    content: '<<---- I am before--';
+    color: #333;
+    font-size: 12px;
+  }
